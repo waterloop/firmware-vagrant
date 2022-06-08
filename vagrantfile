@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-20.04"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+    vb.memory = "4096"
+    vb.cpus = 2
+    vb.customize ["modifyvm", :id, "--usb", "on"]
+    vb.customize ["modifyvm", :id, "--usbehci", "on"]
+    vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "STLink", "--vendorid", "0x0483"]
+  end
+
+  # Since we have brigde: "", Vagrant will ask you which
+  # interface to bridge instead, which is what we want...
+  config.vm.network "public_network", bridge: "", auto_config: true
+
+  # run the provision script...
+  config.vm.provision "shell" do |s|
+    s.path = "./provision_box.sh"
+    s.keep_color = true
+  end
+end
+
