@@ -22,7 +22,7 @@ brew install vagrant
 
 * Virtualbox is incompatible with Windows hosts running WSL/WSL2
 * The recommended solution for this would be to disable WSL on your system and *try* Vagrant - you might find that you actually prefer it to WSL
-  * Vagrant allows you to have multiple VMs running, while WSL locks you into 1
+  * Vagrant allows you to have multiple VMs running, while WSL locks you into 1 (as far as I know...)
   * Vagrant lets you share folders with your host machine, just like WSL (the performance of the shared folder is much better on Vagrant though imo)
   * If you don't like Vagrant, you can always uninstall and re-enable WSL
 * As a fallback, the script `provision_box.sh` can be run manually to install the tools onto your WSL VM, this is not recommended however...
