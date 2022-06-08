@@ -36,19 +36,19 @@ brew install vagrant
 
 1. Scroll down in the above link until you see the following link
 
-![image-20220608002355853](/Users/ryanmah/shared/Waterloop/firmware/firmware-vagrant/readme.assets/image-20220608002355853.png)
+![image-20220608002355853](./readme.assets/image-20220608002355853.png)
 
 2. In your VirtualBox GUI, navigate to "Preferences"
 
-![image-20220608002501720](/Users/ryanmah/shared/Waterloop/firmware/firmware-vagrant/readme.assets/image-20220608002501720.png)
+![image-20220608002501720](./readme.assets/image-20220608002501720.png)
 
 3. Navigate to "Extensions", and click the "add" button
 
-![image-20220608002602941](/Users/ryanmah/shared/Waterloop/firmware/firmware-vagrant/readme.assets/image-20220608002602941.png)
+![image-20220608002602941](./readme.assets/image-20220608002602941.png)
 
 4. Select the previously downloaded extension pack and install it
 
-   ![image-20220608002700463](/Users/ryanmah/shared/Waterloop/firmware/firmware-vagrant/readme.assets/image-20220608002700463.png)
+   ![image-20220608002700463](./readme.assets/image-20220608002700463.png)
 
 
 
