@@ -2,7 +2,7 @@
 
 Standardizes our development environment through Vagrant VMs. Docker containers are inadequate, since we need to be able to access the host USB ports to flash firmware. We would also like to load kernel modules that are unavailable on a Docker container (e.g., SocketCAN).
 
-The environment consists of an Ubuntu VM with all the cross-compilers and tools pre-installed. USB-over-IP is used as a cross-platform method of accessing the host's USB ports (portable across OSX, Windows, and Linux hosts).
+The environment consists of a Debian VM with all the cross-compilers and tools pre-installed. USB-over-IP is used as a cross-platform method of accessing the host's USB ports (portable across OSX, Windows, and Linux hosts).
 
 ### Installation and Setup
 
