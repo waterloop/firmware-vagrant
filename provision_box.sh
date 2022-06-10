@@ -14,6 +14,7 @@ sudo apt install -y build-essential
 sudo apt install -y gcc-arm-none-eabi
 sudo apt install -y gdb
 sudo apt install -y gdb-multiarch
+sudo apt install -y bear
 sudo apt install -y stlink-tools
 sudo apt install -y python3
 sudo apt install -y python3-pip
@@ -44,6 +45,9 @@ git checkout tags/v0.11.0
 ./configure --enable-stlink --enable-ftdi --enable-jlink
 make
 sudo make install
+
+cd ..
+rm -rf openocd
 
 
 # install useful python libraries...
