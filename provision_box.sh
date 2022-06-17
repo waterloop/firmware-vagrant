@@ -15,6 +15,7 @@ sudo apt install -y gcc-arm-none-eabi
 sudo apt install -y gdb
 sudo apt install -y gdb-multiarch
 sudo apt install -y bear
+sudo apt install -y clangd
 sudo apt install -y stlink-tools
 sudo apt install -y python3
 sudo apt install -y python3-pip
