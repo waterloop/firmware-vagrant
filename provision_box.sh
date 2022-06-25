@@ -24,6 +24,7 @@ sudo apt install -y curl
 sudo apt install -y wget
 sudo apt install -y nano
 sudo apt install -y vim
+sudo apt install -y screen
 
 # install latest NodeJS
 sudo curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
