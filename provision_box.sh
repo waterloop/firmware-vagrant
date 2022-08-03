@@ -15,6 +15,7 @@ sudo apt install -y gcc-arm-none-eabi
 sudo apt install -y gdb
 sudo apt install -y gdb-multiarch
 sudo apt install -y bear
+sudo apt install -y clangd
 sudo apt install -y stlink-tools
 sudo apt install -y python3
 sudo apt install -y python3-pip
@@ -25,6 +26,8 @@ sudo apt install -y nano
 sudo apt install -y vim
 sudo apt install -y net-tools
 sudo apt install -y can-utils
+sudo apt install -y screen
+
 # install latest NodeJS
 sudo curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
