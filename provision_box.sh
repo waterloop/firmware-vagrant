@@ -29,7 +29,8 @@ sudo apt install -y \
     vim \
     net-tools \
     can-utils \
-    screen
+    screen \
+    cmake
 
 # install latest NodeJS
 sudo curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
@@ -67,4 +68,13 @@ pip3 install \
     pandas \
     click
 
+# install flatc from source
+git clone https://github.com/google/flatbuffers.git
+cd flatbuffers
+# This hash happens to corrispond the the commit that is working with our current tool chain. This should prevent future commits to flatbuffers from breaking future members virtual machines.
+git checkout 7edf8c90842aaa402257bf99989b58b8147ceabf
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+make
+sudo make install
+cd ..
 
