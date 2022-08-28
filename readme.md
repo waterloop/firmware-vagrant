@@ -2,7 +2,7 @@
 
 Standardizes our development environment through Vagrant VMs. Docker containers are inadequate, since we need to be able to access the host USB ports to flash firmware. We would also like to load kernel modules that are unavailable on a Docker container (e.g., SocketCAN).
 
-The environment consists of a Debian VM with all the cross-compilers and tools pre-installed. USB-over-IP is used as a cross-platform method of accessing the host's USB ports (portable across OSX, Windows, and Linux hosts).
+The environment consists of a Debian VM with all the cross-compilers and tools pre-installed. It also attempts to passthrough ST-Link programmers as well.
 
 ### Installation and Setup
 
@@ -60,26 +60,26 @@ Clone the repo and run the following commands:
 git clone https://github.com/waterloop/firmware-vagrant
 cd firmware-vagrant
 
-vim vagrantfile 	# (optional) edit the vagrantfile to customize your VM setup
+vim custom.rb   # (Optional) customize the VM settings by editing ./custom.rb
 vagrant up --provision
 ```
 
 Now, you can log into your box by doing:
 
 ```shell
-vagrant ssh 	# must be ran in the same directory as "vagrantfile"
+vagrant ssh     # must be ran in the same directory as "vagrantfile"
 ```
 
 Here are some useful vagrant commands:
 
 ```shell
 # NOTE: these must be ran in the same directory as the "vagrantfile"
-vagrant up 				# start the VM
-vagrant halt 			# shutdown the VM
-vagrant ssh 			# ssh into the VM
+vagrant up        # start the VM
+vagrant halt      # shutdown the VM
+vagrant ssh       # ssh into the VM
 
-vagrant destroy 	# completely removes the VM from your system (careful with this one)
-vagrant up --provision 	# re-provision the VM
+vagrant destroy           # completely removes the VM from your system (careful with this one)
+vagrant up --provision    # re-provision the VM
 ```
 
 **Shared Folder**

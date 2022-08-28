@@ -2,25 +2,25 @@
 # vi: set ft=ruby
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "debian/bullseye64"
+    config.vm.box = "debian/bullseye64"
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.gui = false
-    vb.memory = "4096"
-    vb.cpus = 2
-    vb.customize ["modifyvm", :id, "--usb", "on"]
-    vb.customize ["modifyvm", :id, "--usbehci", "on"]
-    vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "STLink", "--vendorid", "0x0483"]
-  end
+    config.vm.provider "virtualbox" do |vb|
+        vb.gui = false
+        vb.customize ["modifyvm", :id, "--usb", "on"]
+        vb.customize ["modifyvm", :id, "--usbehci", "on"]
+        vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "STLink", "--vendorid", "0x0483"]
+    end
 
-  # Since we have brigde: "", Vagrant will ask you which
-  # interface to bridge instead, which is what we want...
-  config.vm.network "public_network", bridge: "", auto_config: true
-
-  # run the provision script...
-  config.vm.provision "shell" do |s|
-    s.path = "./provision_box.sh"
-    s.keep_color = true
-  end
+    # run the provision script...
+    config.vm.provision "shell" do |s|
+        s.path = "./provision_box.sh"
+        s.keep_color = true
+    end
 end
+
+# A hack to make git not track custom.rb, ruby will
+# run anything in backticks as a shell command
+`git update-index --assume-unchanged custom.rb`
+
+load "./custom.rb"
 
