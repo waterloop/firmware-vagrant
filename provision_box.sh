@@ -66,6 +66,8 @@ pip3 install click
 # install flatc from source
 git clone https://github.com/google/flatbuffers.git
 cd flatbuffers
+# This hash happens to corrispond the the commit that is working with our current tool chain. This should prevent future commits to flatbuffers from breaking future members virtual machines.
+git checkout 7edf8c90842aaa402257bf99989b58b8147ceabf
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 make
 sudo make install
