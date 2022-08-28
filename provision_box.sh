@@ -27,6 +27,7 @@ sudo apt install -y vim
 sudo apt install -y net-tools
 sudo apt install -y can-utils
 sudo apt install -y screen
+sudo apt install -y cmake
 
 # install latest NodeJS
 sudo curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
@@ -62,4 +63,11 @@ pip3 install numpy
 pip3 install pandas
 pip3 install click
 
+# install flatc from source
+git clone https://github.com/google/flatbuffers.git
+cd flatbuffers
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+make
+sudo make install
+cd ..
 
