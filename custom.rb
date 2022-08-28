@@ -12,7 +12,6 @@ Vagrant.configure("2") do |config|
         # how much RAM to give the VM
         vb.memory = "4096"
 
-        asd
         # how many CPU cores to give the VM
         vb.cpus = 2
     end
