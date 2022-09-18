@@ -4,6 +4,24 @@ Standardizes our development environment through Vagrant VMs. Docker containers 
 
 The environment consists of a Debian VM with all the cross-compilers and tools pre-installed. It also attempts to passthrough ST-Link programmers as well.
 
+### IMPORTANT: If you have a laptop with Apple Silicon (M1 or M2 mac)
+
+Running virtual machines on Apple silicon is very hard, since hypervisor support for Apple silicon
+is basically non-existant. In this case, it is probably just easist to do your development straight on
+your mac.
+
+Most of the toolchains and utilities that you need can be installed via brew.
+
+The below commands should install **most** of what you need:
+
+```shell
+xcode-select install
+brew install \
+    gcc-arm-embedded \
+    screen \
+    openocd
+```
+
 ### Installation and Setup
 
 #### Install Vagrant
