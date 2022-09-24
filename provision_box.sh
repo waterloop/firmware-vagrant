@@ -32,6 +32,28 @@ sudo apt install -y \
     screen \
     cmake
 
+# install buildroot dependencies
+sudo apt install -y \
+    sed \
+    make \
+    binutils \
+    gcc \
+    g++ \
+    bash \
+    patch \
+    gzip \
+    bzip2 \
+    perl \
+    tar \
+    cpio \
+    unzip \
+    rsync \
+    wget \
+    libncurses-dev \
+    coreutils \
+    flex \
+    bison
+
 # install latest NodeJS
 sudo curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 sudo bash /tmp/nodesource_setup.sh
@@ -77,4 +99,5 @@ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 make
 sudo make install
 cd ..
+rm -rf flatbuffers
 
