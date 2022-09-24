@@ -52,7 +52,8 @@ sudo apt install -y \
     libncurses-dev \
     coreutils \
     flex \
-    bison
+    bison \
+    bc
 
 # install latest NodeJS
 sudo curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
