@@ -100,6 +100,20 @@ vagrant destroy           # completely removes the VM from your system (careful 
 vagrant up --provision    # re-provision the VM
 ```
 
+
+**Common Issues**
+
+When creating, configuring, and running VMs for the first time using Vagrant, you may encounter the following:
+
+* When asked to choose the network interface, enter the number for the given options, not the network interface name. Ensure to use the network interface which provides internet (wifi or ethernet).
+  * eg. enter 1 , not en0
+![image-20220922_network](./readme.assets/image-20220922_network.png)
+
+* If you encounter the below error, ensure that Virtualization Technology is enabled in your machine's BIOS. Procedure to do this may vary for different manufactuers.
+![image-20220922_network](./readme.assets/image-20220922_vmerror.png)
+
+![image-20220922_bios](./readme.assets/image-20220922_bios.png)
+
 **Shared Folder**
 
 Vagrant will automatically create a shared folder mounted as `/vagrant` inside the VM, which shares the files in the same directory as the `vagrantfile`.  You can use this to easily transfer files from your VM to your host and vice-versa. You might find creating a symlink to be convienent:
