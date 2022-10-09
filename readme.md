@@ -74,7 +74,7 @@ brew install vagrant
 
 Clone the repo and run the following commands:
 
-```shell
+```bash
 git clone https://github.com/waterloop/firmware-vagrant
 cd firmware-vagrant
 
@@ -84,13 +84,13 @@ vagrant up --provision
 
 Now, you can log into your box by doing:
 
-```shell
+```bash
 vagrant ssh     # must be ran in the same directory as "vagrantfile"
 ```
 
 Here are some useful vagrant commands:
 
-```shell
+```bash
 # NOTE: these must be ran in the same directory as the "vagrantfile"
 vagrant up        # start the VM
 vagrant halt      # shutdown the VM
@@ -100,6 +100,29 @@ vagrant destroy           # completely removes the VM from your system (careful 
 vagrant up --provision    # re-provision the VM
 ```
 
+#### Using Vagrant with VSCode
+
+You can develop code inside your vagrant box in VSCode using the [remote ssh](https://code.visualstudio.com/docs/remote/ssh-tutorial)
+extension.
+
+0. Generate SSH keys (if you haven't already)
+
+```bash
+ssh-keygen
+```
+
+1. Put the following in your host's $HOME/.ssh/config file:
+
+```
+Host vagrant
+    Hostname localhost
+    User vagrant
+    Port 2222
+```
+
+2. In VSCode, log into the "vagrant" SSH host
+
+![](./readme.assets/vscode.png)
 
 **Common Issues**
 
