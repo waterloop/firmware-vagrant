@@ -69,6 +69,14 @@ brew install vagrant
    ![image-20220608002700463](./readme.assets/image-20220608002700463.png)
 
 
+##### NOTE For linux users
+You can install virtualbox through the command line with a little less hassel.
+
+`sudo apt get update`
+
+`sudo apt install virtualbox virtualbox-ext-pack`
+
+**NOTE** that you need to upgrade `virtualbox` **AND** `virtualbox-ext-pack` at the same time when updates are available. If you do not, you can get some very cryptic errors which are otherwise unhelpful.
 
 #### Setup VM
 
