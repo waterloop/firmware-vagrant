@@ -102,3 +102,7 @@ sudo make install
 cd ..
 rm -rf flatbuffers
 
+# time to install grpc test environment for you!
+# 
+
+

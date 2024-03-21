@@ -1,37 +1,44 @@
+
 # -*- mode: ruby -*-
-# vi: set ft=ruby
+# vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "debian/bullseye64"
-
-    config.ssh.port = 2222
-    config.ssh.guest_port = 2222
-
+    # For a complete reference, please see the online documentation at
+    # https://docs.vagrantup.com.
+  
+    # Every Vagrant development environment requires a box. You can search for
+    # boxes at https://vagrantcloud.com/search.
+    config.vm.box = "ubuntu/lunar64"
+  
+    # Create a forwarded port mapping which allows access to a specific port
+    # within the machine from a port on the host machine. In the example below,
+    # accessing "localhost:8080" will access port 80 on the guest machine.
+    # NOTE: This will enable public access to the opened port
+    # config.vm.network "forwarded_port", guest: 80, host: 8080
+  
+    # Create a forwarded port mapping which allows access to a specific port
+    # within the machine from a port on the host machine and only allow access
+    # via 127.0.0.1 to disable public access
+    # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  
+    # Create a private network, which allows host-only access to the machine
+    # using a specific IP.
+    # config.vm.network "private_network", ip: "192.168.33.10"
+  
+    # If you decide you don't want, you can remove.
     config.vm.provider "virtualbox" do |vb|
-        vb.gui = false
-        vb.customize ["modifyvm", :id, "--usb", "on"]
-        vb.customize ["modifyvm", :id, "--usbehci", "on"]
-        vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "STLink", "--vendorid", "0x0483"]
+      # Display the VirtualBox GUI when booting the machine
+      vb.gui = true
+  
+      # You might decide to add more
+      vb.memory = "1024"
     end
-
-    # put host ssh keys onto VM
-    config.vm.provision "shell" do |s|
-        ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
-        s.inline = <<-SHELL
-            echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
-        SHELL
-    end
-
-    # run the provision script...
-    config.vm.provision "shell" do |s|
-        s.path = "./provision_box.sh"
-        s.keep_color = true
-    end
-end
-
-# A hack to make git not track custom.rb, ruby will
-# run anything in backticks as a shell command
-`git update-index --assume-unchanged custom.rb`
-
-load "./custom.rb"
-
+  
+    # Enable provisioning with a shell script. Additional provisioners such as
+    # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
+    # documentation for more information about their specific syntax and use.
+    config.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y clang cmake pkg-config # more could be required to compile gRPC
+    SHELL
+  end
